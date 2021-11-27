@@ -1,0 +1,103 @@
+//======================================================================
+// THIS FILE CONTAINS LAYOUT STYLING AND NON-REUSABLE COMPONENTS
+//
+//======================================================================
+
+@use "base";
+@use "modules";
+@use "var" as *;
+@use "grid" as g;
+
+%test {
+  border: 1px solid black;
+}
+
+.home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  background: bottom/cover no-repeat url("../img/bg__mobile.jpg");
+  color: #fff;
+
+  .bg__wave {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .time {
+    @include g.col(1, 7);
+    top: 24.2%;
+    text-align: right;
+    z-index: 0;
+
+    font-size: 14.7vmin;
+    font-weight: $font-regular;
+  }
+
+  .today {
+    @include g.col(2, 4, $right: true);
+    bottom: 6.2%;
+    text-align: right;
+
+    &__day {
+      font-size: 5vmin;
+    }
+
+    &__date {
+      margin-top: 2.8vmin;
+      font-size: 4.8vmin;
+    }
+  }
+
+  .random-quote {
+    // @extend %test;
+
+    position: absolute;
+    left: 50%;
+    font-size: 3.33vmin;
+    width: 66.36%;
+    top: 57%;
+    transform: translate3d(-50%, -50%, 0);
+
+    &__quote {
+      line-height: 1.35em;
+
+      &:before {
+        position: absolute;
+        content: "“";
+        left: -10px;
+        top: -1px;
+
+        color: $blue;
+        font-size: 1.4em;
+      }
+    }
+
+    &__char {
+      margin-top: 5%;
+      margin-bottom: 0.1rem;
+      text-align: right;
+
+      font-size: 0.9em;
+      font-weight: $font-light;
+
+      &::before {
+        content: "-";
+        position: absolute;
+        margin-left: -1rem;
+      }
+    }
+
+    &__anime {
+      // position: relative;
+      width: 50%;
+      float: right;
+      text-align: right;
+
+      font-size: 0.5em;
+      font-weight: $font-light;
+      line-height: 1.36em;
+    }
+  }
+}

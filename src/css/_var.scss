@@ -1,0 +1,16 @@
+@use "sass:color";
+
+$border-clr: #cccccc;
+$gray: #d7d7d7;
+$darkgray: color.adjust($gray, $lightness: -5%);
+$black: #363636;
+
+$blue: #3399ff;
+$darkblue: #0066cc;
+$pink: #ff99ff;
+$red: #ff3333;
+
+$font: "Comfortaa", Helvetica, sans-serif;
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 700;

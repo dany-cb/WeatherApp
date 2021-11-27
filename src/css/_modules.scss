@@ -1,0 +1,136 @@
+@use "grid" as g;
+@use "var" as *;
+
+.search-bar-wrap {
+  @include g.col(1, 10, false);
+  top: 5.3vh;
+  z-index: 10;
+
+  .search-bar {
+    width: 100%;
+    height: 5.3vh;
+    border: 0.1rem solid $border-clr;
+    overflow: hidden;
+
+    border-radius: 4rem;
+    background-color: rgba($gray, 0.6);
+
+    form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__field {
+      width: 85%;
+      height: 100%;
+      border-radius: 4rem 0 0 4rem;
+      padding-left: 1.75rem;
+
+      background-color: transparent;
+      transition: background-color 0.25s ease-out;
+      font-size: 1.1em;
+      color: $black;
+      border: transparent;
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.7);
+        }
+      }
+
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.702);
+        outline: transparent;
+      }
+    }
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15%;
+      height: 100%;
+      text-align: center;
+      padding: 0 1% 0 0;
+
+      color: $black;
+      border: transparent;
+      border-left: 2px solid #fff;
+      background-color: $darkgray;
+      transition: background-color 0.2s;
+
+      &.active {
+        background-color: transparent;
+        cursor: pointer;
+        @media (hover: hover) {
+          &:hover {
+            color: #fff;
+          }
+        }
+
+        &:active {
+          color: #fff;
+          background-color: $gray;
+        }
+
+        svg {
+          stroke-width: 30;
+        }
+      }
+
+      input[type="submit"] {
+        display: none;
+      }
+
+      svg {
+        font-size: 1.4em;
+        transition: stroke-width 0.2s ease-in;
+      }
+    }
+  }
+
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffffe7;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      text-align: left;
+      padding: 0.8rem 3% 0.8rem 5%;
+      border: none;
+      border-bottom: 1px solid $darkgray;
+
+      background-color: transparent;
+
+      &:first-child {
+        border-radius: 0.5rem 0.5rem 0 0;
+        margin-top: 5px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0.9rem;
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+
+      p {
+        display: inline;
+        align-self: flex-end;
+        font-size: 0.8em;
+        font-weight: $font-bold;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: $gray;
+        }
+      }
+    }
+  }
+}

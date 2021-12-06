@@ -3,6 +3,7 @@
 $border-clr: #cccccc;
 $gray: #d7d7d7;
 $darkgray: color.adjust($gray, $lightness: -5%);
+$lightgray: color.adjust($gray, $lightness: 10%);
 $black: #363636;
 
 $blue: #3399ff;

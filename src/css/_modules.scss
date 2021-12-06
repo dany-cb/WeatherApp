@@ -134,3 +134,50 @@
     }
   }
 }
+
+.menubar {
+  position: absolute;
+  left: 25%;
+  top: 90%;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 6%;
+  font-size: 1.2em;
+  background-color: rgba($gray, 0.5);
+  border-radius: 1rem;
+
+  .menuitem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    transition: font-size 0.15s ease-out;
+
+    @media (hover: hover) {
+      &:hover {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__temp {
+    position: relative;
+    margin-top: 2px;
+  }
+
+  &__unit {
+    flex-direction: column;
+    justify-self: flex-start;
+    position: relative;
+    font-size: 1.3rem;
+    margin-top: -2px;
+
+    .metrics {
+      position: absolute;
+      font-size: 0.87rem;
+      transform: translateY(100%);
+    }
+  }
+}

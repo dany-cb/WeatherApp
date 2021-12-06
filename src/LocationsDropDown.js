@@ -8,9 +8,13 @@ const ACCESS_KEY = "af79882b02ef99d9f1cc5bdcafc88053";
 const API = `http://api.positionstack.com/v1/forward?access_key=${ACCESS_KEY}&limit=${QUERY_LIMIT}`;
 
 // eslint-disable-next-line react/display-name
-const DropDownList = React.memo(({ data, setCoordinate, setLocation }) => {
+const DropDownList = React.memo(({ data, setCoordinate, dispatchLocation }) => {
   useEffect(() => {
-    setCoordinate({ type: "UPDATE", payload: data[0] });
+    setCoordinate({
+      name: data[0].name,
+      latitude: data[0].latitude,
+      longitude: data[0].longitude,
+    });
   }, [data]);
   const ddItems = data.map((item) => {
     const key = uuid();
@@ -22,8 +26,13 @@ const DropDownList = React.memo(({ data, setCoordinate, setLocation }) => {
         key={key}
         tabIndex={0}
         onClick={() => {
-          setLocation("");
-          console.log("API request for data:", item);
+          setCoordinate({
+            name: item.name,
+            latitude: item.latitude,
+            longitude: item.longitude,
+          });
+          dispatchLocation({ type: "NO_DROPDOWN", payload: item.label });
+          document.querySelector(".search-bar__field").focus();
         }}
       >
         {item.name}, {item.region}
@@ -38,7 +47,7 @@ const DropDownList = React.memo(({ data, setCoordinate, setLocation }) => {
   );
 });
 
-const LocationsDropDown = ({ location, setLocation, setCoordinate }) => {
+const LocationsDropDown = ({ location, dispatchLocation, setCoordinate }) => {
   const URL = API + `&query=${location}`;
 
   const response = useFetchData(URL);
@@ -47,7 +56,7 @@ const LocationsDropDown = ({ location, setLocation, setCoordinate }) => {
     <DropDownList
       data={response.data.data}
       setCoordinate={setCoordinate}
-      setLocation={setLocation}
+      dispatchLocation={dispatchLocation}
     />
   ) : (
     ""

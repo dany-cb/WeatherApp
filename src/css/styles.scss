@@ -23,6 +23,8 @@
   .bg__wave {
     width: 100%;
     height: 100vh;
+    position: absolute;
+    z-index: 9;
   }
 
   .time {
@@ -98,6 +100,117 @@
       font-size: 0.5em;
       font-weight: $font-light;
       line-height: 1.36em;
+    }
+  }
+}
+
+//===================================================================
+//              INFO SCREEN COMPONENTS
+//===================================================================
+
+.info {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  .title {
+    margin: 9% auto 0 auto;
+    width: 90%;
+    text-align: center;
+
+    &__place {
+      font-weight: $font-bold;
+      font-size: 1.9rem;
+      color: $black;
+      line-height: 2em;
+    }
+
+    &__date {
+      font-size: 1rem;
+      color: #a1a1a1;
+    }
+  }
+  .c-weather-icon {
+    width: 65%;
+    margin: 19% auto 0 auto;
+    position: relative;
+    left: 2%;
+  }
+
+  .temp-current {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    margin: 2rem auto 1.6rem auto;
+    font-size: 2.9rem;
+    text-align: center;
+
+    &__real,
+    &__feels {
+      flex: 0 0 50%;
+      position: relative;
+      .symbol {
+        font-size: 0.5em;
+        position: relative;
+        top: -0.7em;
+        left: 0.1em;
+      }
+    }
+
+    &__real {
+      border-right: 0.14rem solid $black;
+    }
+    &__feels {
+      border-left: 0.14rem solid $black;
+
+      &:before {
+        content: "Feels Like";
+        position: absolute;
+        left: 25%;
+        color: #a1a1a1;
+        top: -1.3em;
+        font-size: 0.25em;
+      }
+    }
+  }
+
+  .forecast {
+    text-transform: capitalize;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .down-arrow {
+    position: absolute;
+    bottom: 12%;
+    width: 50px;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.detailed-page {
+  .day-menu {
+    display: flex;
+    width: fit-content;
+    margin: 8% auto 0;
+    justify-content: space-around;
+    background-color: $lightgray;
+    border-radius: 1.2rem;
+    border: 1px solid $border-clr;
+    font-size: 0.9em;
+
+    li {
+      padding: 0.5rem 1.2rem;
+      border-radius: inherit;
+      border: 1px solid transparent;
+    }
+
+    .active {
+      background-color: $darkblue;
+      border-color: $darkblue;
+      color: #fff;
     }
   }
 }

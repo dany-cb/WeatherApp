@@ -45,7 +45,7 @@ const useFetchData = (url) => {
         .catch((error) => {
           dispatch({ type: "ERROR", payload: { error } });
         });
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(prevTimeout);

@@ -84,4 +84,4 @@ function useDateTime() {
   return { time, date };
 }
 
-export default DateTime;
+export { DateTime as default, useDateTime };

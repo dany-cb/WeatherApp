@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar";
 import DateTime from "./DateTime";
 import React from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { slideDown, waveB2F } from "./Animation";
 
 function HomeScreen() {

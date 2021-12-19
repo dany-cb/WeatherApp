@@ -76,7 +76,7 @@ function useDateTime() {
       case 5:
         return "Friday";
       case 6:
-        return "Sunday";
+        return "Saturday";
       default:
         throw new Error("Something wrong with Date() bro");
     }

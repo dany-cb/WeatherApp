@@ -17,8 +17,9 @@ const InfoScreen = () => {
   const [searchParams] = useSearchParams();
   const { state } = useLocation();
   const [weatherData, setWeatherData] = useState(state);
-  const menu = useRef(null);
+  const menu = useRef(null); //To animate menu fadeIn
   const place = searchParams.get("query");
+
   useLayoutEffect(() => {
     fadeIn(menu.current);
   }, []);
@@ -54,11 +55,11 @@ const InfoScreen = () => {
         <h4 className="title__date">{date}</h4>
       </div>
 
-      <WeatherShortInfo data={weatherData} />
+      <WeatherShortInfo data={weatherData.current} />
       <BsChevronCompactDown
         className="down-arrow"
         onClick={() => {
-          nav("/info");
+          nav("/info", { state: weatherData });
         }}
       />
       <MenuBar ref={menu} />

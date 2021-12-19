@@ -813,7 +813,7 @@ const icons = {
         fill="url(#a)"
         stroke="#fff"
         strokeMiterlimit="10"
-        strokeWidth={strokeWidth}
+        strokeWidth="0.3"
       />
       <circle
         cx="46.8"
@@ -822,7 +822,7 @@ const icons = {
         fill="url(#b)"
         stroke="#fff"
         strokeMiterlimit="10"
-        strokeWidth={strokeWidth}
+        strokeWidth="0.3"
       />
       <circle cx="30.1" cy="10.1" r="10.1" fill="#d0e8f8" />
       <circle
@@ -832,7 +832,7 @@ const icons = {
         fill="url(#c)"
         stroke="#fff"
         strokeMiterlimit="10"
-        strokeWidth={strokeWidth}
+        strokeWidth="0.3"
       />
       <circle cx="49.9" cy="28.4" r="8.9" fill="#d0e8f8" />
     </svg>
@@ -999,7 +999,7 @@ const icons = {
         fill="none"
         stroke="#231f20"
         strokeMiterlimit="10"
-        strokeWidth=".5"
+        strokeWidth={strokeWidth}
         d="M46.3 36.7a10.7 10.7 0 1 0 0-21.3H46a17 17 0 0 0-32.4-5.1h-.2a13.2 13.2 0 0 0 0 26.4Z"
       />
       <path

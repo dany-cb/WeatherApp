@@ -1,5 +1,5 @@
 import HomeScreen from "./HomeScreen";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import InfoScreen from "./InfoScreen";
 import DetailedInfoScreen from "./DetailedInfoScreen";
 

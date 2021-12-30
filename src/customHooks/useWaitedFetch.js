@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case "RESET":
       return initialState;
     default:
-      console.error("useFetchData:Reducer Unexpected Action.type");
+      console.error("useWaitedFetch: Reducer recieved Unexpected Action.type");
   }
 };
 
@@ -23,11 +23,11 @@ let prevTimeout = null;
 
 /**
  * Fetches the data from url and returns a state comprised of the current state of the fetch
- * Cancels the previous request if the next request is called within 2secs
+ * Cancels the previous request if the next request is called within 600ms
  * @param {string} url
  * @returns {(string|Object)} {loading, data, error}
  */
-const useFetchData = (url) => {
+const useWaitedFetch = (url) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -36,16 +36,18 @@ const useFetchData = (url) => {
 
     prevTimeout = setTimeout(() => {
       fetch(url)
-        .then((response) => response.json())
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else throw Error(response.statusText);
+        })
         .then((data) => {
-          console.log(data);
-
           dispatch({ type: "COMPLETE", payload: { data } });
         })
         .catch((error) => {
           dispatch({ type: "ERROR", payload: { error } });
         });
-    }, 1000);
+    }, 600);
 
     return () => {
       clearTimeout(prevTimeout);
@@ -55,4 +57,4 @@ const useFetchData = (url) => {
   return state;
 };
 
-export default useFetchData;
+export default useWaitedFetch;

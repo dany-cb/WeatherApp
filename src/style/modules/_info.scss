@@ -1,0 +1,73 @@
+@use "../variables" as *;
+
+.i {
+  &-hamburger {
+    position: absolute;
+    width: 27px;
+    height: auto;
+    transform: translate3d(70%, 70%, 0);
+  }
+
+  &-arrowDown {
+    position: relative;
+    width: 54px;
+    height: 36px;
+    display: block;
+    margin: 0 auto;
+    top: 80vh;
+  }
+}
+
+.title {
+  max-width: 200px;
+  text-align: center;
+  margin: auto;
+  transform: translateY(40%);
+
+  &-place,
+  &-date {
+    display: inline-block;
+    font-weight: normal;
+  }
+
+  &-place {
+    font-size: $txt-M;
+    line-height: 200%;
+    text-transform: capitalize;
+  }
+
+  &-date {
+    color: $neutral-400;
+    font-size: $paragraph;
+  }
+}
+
+.fPanel {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  @media screen and (min-width: $bp-desktop) {
+    flex-direction: row;
+  }
+
+  &-icon {
+    position: relative;
+    width: 100%;
+    height: auto;
+    left: 4%;
+  }
+
+  &-temp {
+    font-size: $txt-XL;
+    margin: 0.5em 0;
+    text-align: center;
+  }
+
+  &-weather {
+    text-align: center;
+    color: $neutral-500;
+    font-size: $txt-M;
+    text-transform: capitalize;
+  }
+}

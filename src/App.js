@@ -1,17 +1,53 @@
-import HomeScreen from "./HomeScreen";
-import { Routes, Route } from "react-router-dom";
-import InfoScreen from "./InfoScreen";
-import DetailedInfoScreen from "./DetailedInfoScreen";
+import HomePage from "./pages/HomePage";
+import useModReducer from "./customHooks/useModReducer";
+import InfoPage from "./pages/InfoPage";
+import ForecastPage from "./pages/ForecastPage";
 
-function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomeScreen />} />
-      <Route path="/loc" element={<InfoScreen />} />
-      <Route path="/info" element={<DetailedInfoScreen opt={0} />} />
-      <Route path="*" element={"Hello Error Screen here!"} />
-    </Routes>
-  );
-}
+const App = () => {
+  const handler = (state, { type, payload }) => {
+    switch (type) {
+      case "UPDATE_GLOBAL_DATA":
+        return { page: 1, weatherData: payload };
+      case "UPDATE_PAGE":
+        return { ...state, page: payload };
+    }
+  };
+
+  const [store, storeDispatch] = useModReducer(handler, {
+    page: 0,
+    weatherData: {},
+  });
+
+  switch (store.page) {
+    case 0:
+      return <HomePage appStoreDispatch={storeDispatch} />;
+
+    case 1:
+      return (
+        <InfoPage
+          toNextPage={() => storeDispatch("UPDATE_PAGE", 2)}
+          weatherData={store.weatherData}
+        />
+      );
+
+    case 2:
+      console.log(store.weatherData);
+      return (
+        <ForecastPage
+          opt={0}
+          current={store.weatherData.current}
+          daily={store.weatherData.daily}
+          hourly={store.weatherData.hourly}
+        />
+      );
+
+    case 5:
+      return <h1>Error Page Here</h1>;
+
+    default:
+      console.error("Switch Error: Invalid page value. Nothing to show");
+      break;
+  }
+};
 
 export default App;

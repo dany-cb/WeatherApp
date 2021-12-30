@@ -1,0 +1,160 @@
+@use "../variables" as *;
+
+.dayMenu {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: $neutral-200;
+  border: 1px solid $neutral-300;
+  border-radius: 40px;
+  color: $neutral-500;
+  font-size: $txt-XXS;
+
+  &-item {
+    padding: $caption 0;
+    border-radius: inherit;
+    flex-grow: 1;
+    text-align: center;
+    &_active {
+      background: $gradient-100;
+      color: $neutral-100;
+      font-weight: bold;
+      filter: drop-shadow(3px 0px 4px rgba(0, 0, 0, 0.25));
+    }
+  }
+}
+
+.fPanel_small {
+  .fPanel-icon {
+    width: 74px;
+    height: auto;
+  }
+
+  .fPanel-temp {
+    font-size: $txt-S;
+  }
+
+  .fPanel-weather {
+    font-size: $caption;
+  }
+}
+
+.fDetails {
+  width: 50%;
+  font-size: $paragraph;
+  color: $primary-300;
+
+  &:first-child {
+    padding-right: 0.3em;
+  }
+
+  &:last-child {
+    padding-left: 0.3em;
+  }
+
+  &-block {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4em 0;
+  }
+
+  &-icon {
+    width: 27px;
+    height: 27px;
+    color: #000;
+  }
+
+  &-rain {
+    font-size: $txt-S;
+    color: $primary-100;
+
+    &Icon {
+      width: 32px;
+      height: auto;
+      color: #000;
+    }
+  }
+
+  &-time {
+    color: $primary-200;
+
+    &_sunrise:after {
+      content: "Sunrise";
+    }
+
+    &_sunset:after {
+      content: "Sunset";
+    }
+
+    &_sunrise:after,
+    &_sunset:after {
+      display: block;
+      position: absolute;
+      font-size: $txt-XXS;
+      color: $primary-300;
+    }
+  }
+
+  &-meridies {
+    font-size: $caption;
+    text-transform: uppercase;
+  }
+}
+
+//=========================================
+//  Hourly Forecast Table
+//=========================================
+
+.fTable {
+  &-head {
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-size: $paragraph;
+    }
+  }
+
+  &-body {
+    height: 50vh;
+    overflow: scroll;
+    margin-top: 0.8rem;
+    //Hides the scrollbar
+    @media (hover) {
+      scrollbar-width: none; // Firefox
+      &::-webkit-scrollbar {
+        display: none; //Safari and Chrome
+      }
+    }
+  }
+
+  &-block {
+    background-color: $neutral-200;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 0;
+    margin: 0.8rem 0;
+
+    span:first-child,
+    svg {
+      flex-basis: 30%;
+    }
+
+    svg {
+      height: 36px;
+      width: auto;
+    }
+  }
+
+  &-temp {
+    font-size: $txt-M;
+    flex-grow: 1;
+  }
+}
+
+.i-calendar {
+  color: $neutral-500;
+  height: 27px;
+  width: auto;
+}

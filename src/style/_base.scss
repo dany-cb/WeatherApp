@@ -1,0 +1,36 @@
+@use "./variables" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  // height: 100%;
+  position: relative;
+  font-family: "Comfortaa", Helvetica, sans-serif;
+  font-size: 16px;
+
+  @media screen and (max-width: $bp-mobile-sm) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: $bp-desktop) {
+    font-size: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  // height: 100vh;
+}
+
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+input,
+button {
+  font-size: 1rem;
+}

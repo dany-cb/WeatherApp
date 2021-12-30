@@ -1010,13 +1010,10 @@ const icons = {
   ),
 };
 
-const WeatherIcons = (props) => {
-  const id = props.id.toString();
-  return (
-    <div className={props.className}>
-      {icons[id] || icons[id.slice(0, 2)] || icons[id.slice(0, 1)]}
-    </div>
-  );
+const WeatherIcon = ({ id }) => {
+  id = id.toString();
+  console.log(id);
+  return icons[id] || icons[id.slice(0, 2)] || icons[id.slice(0, 1)];
 };
 
-export default WeatherIcons;
+export default WeatherIcon;

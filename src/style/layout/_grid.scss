@@ -1,0 +1,38 @@
+@use "sass:math";
+
+$columns: 12;
+$test-width: 1080px;
+$gutter: 10px;
+
+$single-col-width: math.div($test-width - $gutter * ($columns - 1), $columns);
+
+@function col-width($span) {
+  $width-px: ($single-col-width + $gutter) * $span - $gutter;
+  $raw-width: percentage(math.div($width-px, $test-width));
+  @return math.div(round($raw-width * 1000), 1000);
+}
+
+@function col-width-plus($span) {
+  $width-px: ($single-col-width + $gutter) * $span + $gutter;
+  $raw-width: percentage(math.div($width-px, $test-width));
+  @return math.div(round($raw-width * 1000), 1000);
+}
+
+//================================================
+// Grid System Utils
+//================================================
+
+$sizes: 1, 3, 4, 5, 6, 7, 8, 9, 10;
+$sizes-plus: 6, 7, 10, 11;
+
+@each $size in $sizes {
+  .-span-#{$size} {
+    width: col-width($size);
+  }
+}
+
+@each $size-plus in $sizes-plus {
+  .-span-#{$size-plus}-p {
+    width: col-width($size-plus);
+  }
+}

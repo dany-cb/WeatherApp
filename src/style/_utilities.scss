@@ -1,0 +1,32 @@
+@use "./variables" as *;
+
+.-circle-red {
+  border-radius: 50%;
+  border: 5px solid $primary-300;
+}
+
+.-center {
+  margin: auto;
+}
+
+.-abs {
+  position: absolute;
+}
+
+.-rel {
+  position: relative;
+}
+
+.-flex-r-nw {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.-flex-c-nw {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.-bg-black {
+  background-color: #191c23;
+}

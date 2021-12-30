@@ -1,9 +1,9 @@
-// import useFetchData from "./useFetchData";
+// import useFetch from "../customHooks/useFetch";
 
 // const URL = `https://animechan.vercel.app/api/random`;
 
 const RandomQuote = () => {
-  // const response = useFetchData(URL);
+  // const response = useFetch(URL);
 
   /* Test Purposes */
   const response = {
@@ -18,13 +18,11 @@ const RandomQuote = () => {
   };
 
   return !response.loading && !response.error ? (
-    <figure className="random-quote">
-      <blockquote className="random-quote__quote">
-        {response.data.quote}
-      </blockquote>
+    <figure className="quote -span-9">
+      <blockquote className="quote-content">{response.data.quote}</blockquote>
       <figcaption>
-        <p className="random-quote__char">{response.data.character}</p>
-        <cite className="random-quote__anime">{response.data.anime}</cite>
+        <p className="quote-char -span-4-p">- {response.data.character}</p>
+        <cite className="quote-anime -span-7-p">{response.data.anime}</cite>
       </figcaption>
     </figure>
   ) : (

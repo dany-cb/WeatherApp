@@ -21,22 +21,24 @@ const InfoPage = ({ weatherData, toNextPage }) => {
   return (
     <>
       <BiMenu className="i-hamburger" />
-      <div className="title">
-        <h2 className="title-place">{weatherData.name.toLowerCase()}</h2>
-        <h4 className="title-date">
-          {date && `${date[1]} ${date[0]}, ${date[2]}`}
-        </h4>
+      <div className="l-container -flex-c-nw">
+        <div className="title">
+          <h2 className="title-place">{weatherData.name.toLowerCase()}</h2>
+          <h4 className="title-date">
+            {date && `${date[1]} ${date[0]}, ${date[2]}`}
+          </h4>
+        </div>
+        <div className="l-fPanel -span-9">
+          <ForecastPanel data={weatherData.current} />
+        </div>
+        <IoChevronDownOutline
+          onClick={() => {
+            toNextPage();
+          }}
+          className="i-arrowDown"
+          preserveAspectRatio="none"
+        />
       </div>
-      <div className="l-fPanel -span-7-p">
-        <ForecastPanel data={weatherData.current} />
-      </div>
-      <IoChevronDownOutline
-        onClick={() => {
-          toNextPage();
-        }}
-        className="i-arrowDown"
-        preserveAspectRatio="none"
-      />
     </>
   );
 };

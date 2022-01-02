@@ -4,7 +4,7 @@ import WeatherIcon from "../data/WeatherIcon";
 
 const HourlyForecastTable = ({ data }) => {
   return (
-    <div className="l-fTable -rel -span-10 -flex-c-nw">
+    <div className="l-fTable -span-10 -flex-c-nw">
       <div className="fTable-head -flex-r-nw">
         <h3>Hourly forecast</h3>
         <ImCalendar className="i-calendar" />

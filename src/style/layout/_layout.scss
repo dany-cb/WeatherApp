@@ -40,28 +40,67 @@
   }
 }
 
+//======================================================
+//  INFO Page
+//======================================================
+
+.l-container {
+  width: 100%;
+  height: 96vh;
+  justify-content: space-between;
+}
+
 .l-fPanel {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  flex-basis: 50%;
+  margin: 0 auto;
+}
+
+//=====================================================
+//  FORECAST Page
+//=====================================================
+
+.l-wrap {
+  @media screen and (min-width: $bp-desktop) {
+    flex-direction: row;
+    margin-bottom: 50px;
+  }
+
+  min-height: 0;
 }
 
 .l-daySelectMenu {
   max-width: 300px;
   margin: 0 auto;
-  transform: translateY(100%);
+  flex-basis: 10%;
+  padding: 1.5em 0;
 }
 
 .l-forecast {
   position: relative;
-  transform: translateY(60%);
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  max-width: 400px;
+  max-height: 500px;
 
-  .l-fWeeklyTable + & {
-    transform: translateY(100%);
+  @media screen and (min-width: $bp-desktop) {
+    flex-direction: column;
+    height: 80%;
+    margin: auto 0;
+    font-size: 26px;
+
+    .fPanel {
+      width: 100%;
+      margin-bottom: 1.5em;
+    }
+
+    .fPanel > .fPanel-icon {
+      width: 40%;
+    }
+  }
+
+  .fPanel {
+    flex-direction: column;
   }
 }
 
@@ -74,17 +113,24 @@
     right: 50%;
   }
 
+  margin: auto 0;
   max-width: 250px;
   width: 60%;
   align-items: center;
 }
 
-.l-fTable {
-  margin: 0 auto;
-  top: 120px;
+.l-fTable,
+.l-fWeeklyTable {
+  margin: 2em auto 0;
+  min-height: 0;
+
+  max-width: 500px;
 }
 
 .l-fWeeklyTable {
-  margin: 0 auto;
-  top: 70px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $bp-desktop) {
+    margin-bottom: 0;
+  }
 }

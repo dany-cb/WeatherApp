@@ -9,7 +9,7 @@ const ForecastPage = (props) => {
   const [opt, setOpt] = useState(props.opt);
 
   return (
-    <>
+    <div className="l-container -flex-c-nw">
       <div className="l-daySelectMenu -span-8 -rel">
         <DaySelectMenu
           blockName="dayMenu"
@@ -19,8 +19,10 @@ const ForecastPage = (props) => {
           setOpt={setOpt}
         />
       </div>
-      <Content {...props} opt={opt} />
-    </>
+      <div className="l-wrap -flex-c-nw -rel">
+        <Content {...props} opt={opt} />
+      </div>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ const WeeklyForecastTable = ({ data, setWeekDay }) => {
   };
 
   return (
-    <div className="l-fWeeklyTable -rel -span-10 -flex-c-nw">
+    <div className="l-fWeeklyTable -span-10 -flex-c-nw">
       <div className="fTable-head -flex-r-nw">
         <h3>This week</h3>
         <ImCalendar className="i-calendar" />
@@ -19,7 +19,7 @@ const WeeklyForecastTable = ({ data, setWeekDay }) => {
         {data.map((item, index) => {
           return (
             <div
-              className="fTable-block -flex-r-nw"
+              className="fTable-block -flex-r-nw -click"
               role="button"
               tabIndex={0}
               onClick={() => {

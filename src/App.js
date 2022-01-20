@@ -1,7 +1,5 @@
-import HomePage from "./pages/HomePage";
+import { HomePage, InfoPage, ForecastPage } from "./pages";
 import useModReducer from "./customHooks/useModReducer";
-import InfoPage from "./pages/InfoPage";
-import ForecastPage from "./pages/ForecastPage";
 
 const App = () => {
   const handler = (state, { type, payload }) => {

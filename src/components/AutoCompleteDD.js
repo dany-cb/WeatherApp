@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import useWaitedFetch from "../customHooks/useWaitedFetch";
 import { geoApify } from "../data/API";
 
-const AutoCompleteDD = ({ query, dispatch }) => {
+export const AutoCompleteDD = ({ query, dispatch }) => {
   const response = useWaitedFetch(geoApify(query, 6));
 
   const DDGenerator = ({ data }) => {
@@ -59,5 +59,3 @@ const AutoCompleteDD = ({ query, dispatch }) => {
     <DDGenerator data={response.data.results} />
   ) : null;
 };
-
-export default AutoCompleteDD;

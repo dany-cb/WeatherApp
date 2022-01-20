@@ -7,7 +7,7 @@ import {
   WiHorizon,
 } from "react-icons/wi";
 
-const ForecastDetails = ({
+export const ForecastDetails = ({
   humidity,
   wind_speed,
   uvi,
@@ -66,5 +66,3 @@ const ForecastDetails = ({
     </div>
   );
 };
-
-export default ForecastDetails;

@@ -2,7 +2,7 @@ import { ImCalendar } from "react-icons/im";
 import { formatUTCToTime } from "../customHooks/useLiveDate";
 import WeatherIcon from "../data/WeatherIcon";
 
-const HourlyForecastTable = ({ data }) => {
+export const HourlyForecastTable = ({ data }) => {
   return (
     <div className="l-fTable -span-10 -flex-c-nw">
       <div className="fTable-head -flex-r-nw">
@@ -24,5 +24,3 @@ const HourlyForecastTable = ({ data }) => {
     </div>
   );
 };
-
-export default HourlyForecastTable;

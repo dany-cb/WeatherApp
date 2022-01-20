@@ -1,6 +1,6 @@
 import WeatherIcon from "../data/WeatherIcon";
 
-const ForecastPanel = ({ data, xtraClassName = "" }) => {
+export const ForecastPanel = ({ data, xtraClassName = "" }) => {
   console.log(data.weather[0].id);
 
   return (
@@ -27,5 +27,3 @@ const ForecastPanel = ({ data, xtraClassName = "" }) => {
     </div>
   );
 };
-
-export default ForecastPanel;

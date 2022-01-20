@@ -1,4 +1,10 @@
-const DaySelectMenu = ({ blockName, ariaLabel = "", items, opt, setOpt }) => {
+export const DaySelectMenu = ({
+  blockName,
+  ariaLabel = "",
+  items,
+  opt,
+  setOpt,
+}) => {
   return (
     <nav className={blockName} aria-label={ariaLabel}>
       {items.map((item, i) => {
@@ -30,5 +36,3 @@ const DaySelectMenu = ({ blockName, ariaLabel = "", items, opt, setOpt }) => {
     </nav>
   );
 };
-
-export default DaySelectMenu;

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import DaySelectMenu from "../components/DaySelectMenu";
-import ForecastDetails from "../components/ForecastDetails";
-import ForecastPanel from "../components/ForecastPanel";
-import HourlyForecastTable from "../components/HourlyForecastTable";
-import WeeklyForecastTable from "../components/WeeklyForecastTable";
+import {
+  DaySelectMenu,
+  ForecastDetails,
+  ForecastPanel,
+  HourlyForecastTable,
+  WeeklyForecastTable,
+} from "../components";
 
 const ForecastPage = (props) => {
   const [opt, setOpt] = useState(props.opt);

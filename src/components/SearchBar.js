@@ -1,4 +1,4 @@
-const SearchBar = ({ onInputChange, onSubmitHandler }) => {
+export const SearchBar = ({ onInputChange, onSubmitHandler }) => {
   return (
     <form
       className="searchBar -flex-r-nw "
@@ -26,5 +26,3 @@ const SearchBar = ({ onInputChange, onSubmitHandler }) => {
     </form>
   );
 };
-
-export default SearchBar;

@@ -2,7 +2,7 @@ import { ImCalendar } from "react-icons/im";
 import { getWeekDay } from "../customHooks/useLiveDate";
 import WeatherIcon from "../data/WeatherIcon";
 
-const WeeklyForecastTable = ({ data, setWeekDay }) => {
+export const WeeklyForecastTable = ({ data, setWeekDay }) => {
   const dayFromUTC = (utcTime) => {
     const date = new Date(utcTime * 1000);
     const day = getWeekDay(date.getDay());
@@ -47,4 +47,3 @@ const WeeklyForecastTable = ({ data, setWeekDay }) => {
     </div>
   );
 };
-export default WeeklyForecastTable;

@@ -1,6 +1,6 @@
 import useLiveDate from "../customHooks/useLiveDate";
 
-const DateNTime = (props) => {
+export const DateNTime = (props) => {
   const dateTime = useLiveDate(2, "FULL");
   if (dateTime)
     return (
@@ -20,5 +20,3 @@ const DateNTime = (props) => {
     );
   else return null;
 };
-
-export default DateNTime;

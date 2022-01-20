@@ -57,7 +57,7 @@ const HomePage = ({ appStoreDispatch }) => {
     inputEl.blur();
     inputEl.addEventListener("focus", (e) => e.target.blur());
     btnEl.disabled = true;
-    //Remove listener after 10s
+    //Allow Input after 10s
     setTimeout(
       () => inputEl.removeEventListener("focus", (e) => e.target.blur()),
       10000
@@ -74,17 +74,15 @@ const HomePage = ({ appStoreDispatch }) => {
 
       storeDispatch("UPDATE_QUERY", "");
 
-      const weatherData = fetchURL(
+      fetchURL(
         openWeather(store.location.current.lat, store.location.current.lon),
-        () => appStoreDispatch("UPDATE_PAGE", 5)
-      );
-      weatherData.then((data) => {
-        if (data)
+        (data) =>
           appStoreDispatch("UPDATE_GLOBAL_DATA", {
             ...data,
             name: store.location.current.loc,
-          });
-      });
+          }),
+        () => appStoreDispatch("UPDATE_PAGE", 5)
+      );
     }
   };
 

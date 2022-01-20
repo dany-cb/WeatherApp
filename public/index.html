@@ -32,22 +32,6 @@
         }, 300);
       });
     </script>
-    <script>
-      //For testing - Remove in build
-      addEventListener("resize", function () {
-        setTimeout(function () {
-          document
-            .getElementById("viewport")
-            .setAttribute(
-              "content",
-              "width=device-width" +
-                ", height=" +
-                window.innerHeight +
-                ", initial-scale=1.0"
-            );
-        }, 300);
-      });
-    </script>
   </head>
   <body>
     <div id="root"></div>

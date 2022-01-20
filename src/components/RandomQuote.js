@@ -1,33 +1,36 @@
-// import useFetch from "../customHooks/useFetch";
+import { useEffect, useState } from "react";
+import fetchURL from "../customHooks/fetchURL";
+import { animeQuote } from "../data/API";
 
-// const URL = `https://animechan.vercel.app/api/random`;
+export const RandomQuote = () => {
+  /* TESTING PURPOSES */
+  // const response = {
+  //     loading: false,
+  //     data: {
+  //         anime: "Ore No Imouto Ga Konna Ni Kawaii Wake Ga Nai",
+  //         character: "Kousaka Kirino",
+  //         quote:
+  //           "Cheer up. No matter how hopeless you are, even if everyone else abandons you, I’ll always be here for you.",
+  //       },
+  //       error: null,
+  //     };
 
-const RandomQuote = () => {
-  // const response = useFetch(URL);
+  const [data, setData] = useState(undefined);
 
-  /* Test Purposes */
-  const response = {
-    loading: false,
-    data: {
-      anime: "Ore No Imouto Ga Konna Ni Kawaii Wake Ga Nai",
-      character: "Kousaka Kirino",
-      quote:
-        "Cheer up. No matter how hopeless you are, even if everyone else abandons you, I’ll always be here for you.",
-    },
-    error: null,
-  };
+  useEffect(() => {
+    fetchURL(animeQuote(), (data) => setData(data));
+  }, []);
 
-  return !response.loading && !response.error ? (
+  return data ? (
     <figure className="quote -span-9">
-      <blockquote className="quote-content">{response.data.quote}</blockquote>
+      <blockquote className="quote-content">{data.quote}</blockquote>
       <figcaption>
-        <p className="quote-char -span-4-p">- {response.data.character}</p>
-        <cite className="quote-anime -span-7-p">{response.data.anime}</cite>
+        <p className="quote-char -span-4-p">- {data.character}</p>
+        <cite className="quote-anime -span-7-p">{data.anime}</cite>
       </figcaption>
     </figure>
   ) : (
+    //Add a good loading screen or placeholder here
     <h1>Loading...</h1>
   );
 };
-
-export default RandomQuote;
